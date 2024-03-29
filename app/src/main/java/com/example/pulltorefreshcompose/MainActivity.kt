@@ -10,9 +10,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -20,7 +17,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pulltorefreshcompose.ui.theme.PullToRefreshComposeTheme
 import kotlinx.coroutines.delay
@@ -47,30 +43,32 @@ class MainActivity : ComponentActivity() {
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                    ){
+                    ) {
                         PullToRefreshLazyColumn(
                             items = items,
-                            content = { itemTitle->
-                                      Text(text = itemTitle,
-                                          modifier = Modifier
-                                              .padding(16.dp)
-                                      )
+                            content = { itemTitle ->
+                                Text(
+                                    text = itemTitle,
+                                    modifier = Modifier
+                                        .padding(16.dp)
+                                )
                             },
-                            isRefreshing = isRefreshing ,
+                            isRefreshing = isRefreshing,
                             onRefresh = {
                                 scope.launch {
-                                    isRefreshing=true
+                                    isRefreshing = true
                                     delay(3000L)
-                                    isRefreshing=false
+                                    isRefreshing = false
                                 }
                             }
                         )
-                        Button(onClick = {
-                            isRefreshing=true
-                        },
+                        Button(
+                            onClick = {
+                                isRefreshing = true
+                            },
                             modifier = Modifier.align(Alignment.BottomCenter)
-                            ) {
-                                Text(text = "Refresh")
+                        ) {
+                            Text(text = "Refresh")
                         }
                     }
                 }
