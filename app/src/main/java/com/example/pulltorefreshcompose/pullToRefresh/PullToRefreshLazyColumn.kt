@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.example.pulltorefreshcompose
+package com.example.pulltorefreshcompose.pullToRefresh
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
